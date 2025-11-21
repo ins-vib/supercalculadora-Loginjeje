@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class SuperCalculadora {
 
 
-    public int sumaPrimersNumeros(int n) {
+    public  static  int sumaPrimersNumeros(int n) {
         int suma = 0;
         for (int i = 1; i <= n; i++) {
             suma += i;
@@ -13,7 +13,7 @@ public class SuperCalculadora {
     }
 
 
-    public int calcularFactorial(int n) {
+    public static  int calcularFactorial(int n) {
         int factorial = 1;
         for (int i = 1; i <= n; i++) {
             factorial *= i;
@@ -22,7 +22,7 @@ public class SuperCalculadora {
     }
 
 
-    public int sumaQuadrats(int n) {
+    public static  int sumaQuadrats(int n) {
         int suma = 0;
         for (int i = 1; i <= n; i++) {
             suma += i * i;
@@ -31,7 +31,7 @@ public class SuperCalculadora {
     }
 
 
-    public int calcularPotencia(int base, int exponent) {
+    public static  int calcularPotencia(int base, int exponent) {
         int resultat = 1;
         for (int i = 0; i < exponent; i++) {
             resultat *= base;
@@ -40,7 +40,7 @@ public class SuperCalculadora {
     }
 
 
-    public int nombreDigits(int n) {
+    public static int nombreDigits(int n) {
         int digits = 0;
         int num = Math.abs(n);
         if (num == 0) return 1;
@@ -64,42 +64,42 @@ public class SuperCalculadora {
 
  
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner teclado = new Scanner(System.in);
         SuperCalculadora calc = new SuperCalculadora();
         int opcio = 0;
 
         while (opcio != 6) {
             calc.mostrarMenuConsola();
             System.out.print("Tria una opció: ");
-            opcio = sc.nextInt();
+            opcio = teclado.nextInt();
 
             switch (opcio) {
                 case 1:
                     System.out.print("Introdueix n: ");
-                    int n1 = sc.nextInt();
-                    System.out.println("Resultat: " + calc.sumaPrimersNumeros(n1));
+                    int n1 = teclado.nextInt();
+                    System.out.println("Resultat: " + sumaPrimersNumeros(n1));
                     break;
                 case 2:
                     System.out.print("Introdueix n: ");
-                    int n2 = sc.nextInt();
-                    System.out.println("Resultat: " + calc.calcularFactorial(n2));
+                    int n2 = teclado.nextInt();
+                    System.out.println("Resultat: " + calcularFactorial(n2));
                     break;
                 case 3:
                     System.out.print("Introdueix n: ");
-                    int n3 = sc.nextInt();
-                    System.out.println("Resultat: " + calc.sumaQuadrats(n3));
+                    int n3 = teclado.nextInt();
+                    System.out.println("Resultat: " + sumaQuadrats(n3));
                     break;
                 case 4:
                     System.out.print("Introdueix la base: ");
-                    int base = sc.nextInt();
+                    int base = teclado.nextInt();
                     System.out.print("Introdueix l'exponent: ");
-                    int exponent = sc.nextInt();
-                    System.out.println("Resultat: " + calc.calcularPotencia(base, exponent));
+                    int exponent = teclado.nextInt();
+                    System.out.println("Resultat: " + calcularPotencia(base, exponent));
                     break;
                 case 5:
                     System.out.print("Introdueix un nombre: ");
-                    int n4 = sc.nextInt();
-                    System.out.println("Té " + calc.nombreDigits(n4) + " dígits.");
+                    int n4 = teclado.nextInt();
+                    System.out.println("Té " + nombreDigits(n4) + " dígits.");
                     break;
                 case 6:
                     System.out.println("Salir");
@@ -108,7 +108,5 @@ public class SuperCalculadora {
                     System.out.println("Opció no vàlida. Torna-ho a intentar.");
             }
         }
-
-        sc.close();
     }
 }
